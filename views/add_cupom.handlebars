@@ -1,0 +1,32 @@
+<div class="m-1">
+  <h2>Adicionar cupom</h2>
+  <hr />
+  <form action="/cupom/adicionar" method="POST">
+    <div class="form-group">
+      <label for="name">Nome*</label>
+      <input type="text" name="name" id="name" class="form-control" required />
+    </div>
+    <div class="form-group">
+      <label for="value">Valor*</label>
+      <input
+        type="number"
+        name="value"
+        id="value"
+        class="form-control"
+        step=".1"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="validity">Validade*</label>
+      <input
+        type="text"
+        name="validity"
+        id="validity"
+        class="form-control"
+        required
+      />
+    </div>
+    <button class="btn btn-dark mt-2">Adicionar</button>
+  </form>
+</div>

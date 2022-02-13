@@ -1,0 +1,58 @@
+<section class="m-1">
+  <a href="/cupom/novo" class="btn btn-dark">
+    <i class="bi bi-plus"></i>
+    Criar cupom
+  </a>
+  <hr />
+  <form method="GET">
+    <input
+      type="text"
+      name="nomeCupom"
+      placeholder="Nome do cupom"
+      class="form-control form-control-sm"
+      value="{{nomeCupom}}"
+      required
+    />
+    <button class="btn btn-sm btn-dark mt-1">
+      <i class="bi bi-search"></i>
+      Buscar
+    </button>
+  </form>
+  <div class="container">
+    <div class="row align-items-center">
+      {{#each cupons}}
+        <div class="mx-auto col-l-3 col-lg-3 col-md-6 col-sm-6">
+          <div class="card bg-dark mt-3 py-2 text-light mb-3 text-center">
+            <div class="card-body">
+              <h4 class="text-warning">Cupom</h4>
+              <p>{{this.name}}</p>
+              <h4 class="text-warning">Valor</h4>
+              <p>{{this.value}}</p>
+              <h4 class="text-warning">Validade</h4>
+              <p>{{this.validity}}</p>
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-sm btn-primary">Usar</button>
+                <div>
+                  <a
+                    href="/cupom/editar/{{this._id}}"
+                    class="btn btn-sm btn-warning mx-1"
+                  >
+                    <i class="bi bi-pencil"></i>
+                  </a>
+                </div>
+                <div>
+                  <form action="/cupom/deletar" method="POST">
+                    <input type="hidden" name="id" value="{{this._id}}" />
+                    <button class="btn btn-sm btn-danger">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>
